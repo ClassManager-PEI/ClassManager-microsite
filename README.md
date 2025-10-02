@@ -1,16 +1,61 @@
-# React + Vite
+# ClassManager Microsite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **ClassManager Microsite**!  
+This project is part of the [ClassManager-PEI](https://github.com/ClassManager-PEI/) organization and serves as the informational and landing page for the ClassManager platform.
 
-Currently, two official plugins are available:
+## Microsite Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This microsite provides:
+- An overview of the ClassManager platform and its features
+- Updates and news related to ClassManager
+- Documentation and links to other resources
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Responsive landing page
+- News and update feed
+- Documentation links
+- Simple, modern UI (built with [Vite](https://vitejs.dev/))
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To run the microsite locally:
+
+```bash
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+The production build will be located in the `dist/` folder.
+
+## Deployment
+
+This microsite is deployed using [GitHub Pages](https://pages.github.com/).  
+Deployment steps:
+1. Build the site: `npm run build`
+2. Copy the contents of `dist/` to the `docs/` folder
+3. Push to the repository
+4. GitHub Pages is configured to serve from `/docs`
+
+## Folder Structure
+
+```
+/
+├── public/         # Static assets
+├── src/            # Source files
+├── updates.json    # JSON feed for site updates
+├── docs/           # Built site for GitHub Pages
+├── vite.config.js  # Vite configuration
+├── package.json    # Project metadata and scripts
+└── README.md       # This file
+```
+
+---
+
+&copy; 2025 [ClassManager-PEI](https://github.com/ClassManager-PEI/)
