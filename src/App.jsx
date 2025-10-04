@@ -6,7 +6,7 @@ import MeetingDetail from "./pages/MeetingDetail"
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/ClassManager-microsite">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
