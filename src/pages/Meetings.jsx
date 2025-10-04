@@ -26,7 +26,7 @@ export default function Meetings() {
       <ul>
         {meetings.map(({ id, preview }) => (
           <li key={id} className="mb-6 p-4 bg-white rounded shadow">
-            <Link to={`/ClassManager-microsite/meetings/${id}`} className="block hover:underline">
+            <Link to={`/meetings/${id}`} className="block hover:underline">
             <h2 className="text-xl font-semibold mb-2">{id}</h2>
 
               <ReactMarkdown>{preview}</ReactMarkdown>

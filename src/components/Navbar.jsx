@@ -9,7 +9,7 @@ export default function Navbar() {
             </div>
             <div className="space-x-10">
                 <Link to="/" className="hover:underline text-2xl text-blue-600">Home</Link>
-                <Link to="/ClassManager-microsite/meetings" className="hover:underline text-2xl text-blue-600">Meetings</Link>
+                <Link to="/meetings" className="hover:underline text-2xl text-blue-600">Meetings</Link>
                 <Link to="/projectState" className="hover:underline text-2xl text-blue-600">Project State</Link>
 
             </div>

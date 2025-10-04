@@ -9,10 +9,9 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/ClassManager-microsite" element={<Home />} />
         <Route path="/" element={<Home />} />
-        <Route path="/ClassManager-microsite/meetings" element={<Meetings />} />
-        <Route path="/ClassManager-microsite/meetings/:id" element={<MeetingDetail />} />
+        <Route path="/meetings" element={<Meetings />} />
+        <Route path="/meetings/:id" element={<MeetingDetail />} />
       </Routes>
     </BrowserRouter>
   )

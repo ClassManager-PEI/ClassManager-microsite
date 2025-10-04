@@ -19,7 +19,7 @@ export default function MeetingDetail() {
     return (
       <div className="max-w-2xl mx-auto py-10">
         <p className="text-red-600 font-bold mb-4">Meeting not found.</p>
-        <Link to="ClassManager-microsite/meetings" className="underline text-amber-700">← Back to Meetings</Link>
+        <Link to="/meetings" className="underline text-amber-700">← Back to Meetings</Link>
       </div>
     );
   }
