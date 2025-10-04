@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../assets/Logo.png"
+import LogoJira from "../assets/logoJIRA.png"
 import { Link } from "react-router-dom";
 export default function Navbar() {
     return (
@@ -7,10 +8,10 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
                 <Link to="/"><img src={Logo} alt="ClassManager Logo" className="h-30 w-30" /></Link>
             </div>
-            <div className="space-x-10">
+            <div className="flex space-x-10">
                 <Link to="/" className="hover:underline text-2xl text-blue-600">Home</Link>
                 <Link to="/meetings" className="hover:underline text-2xl text-blue-600">Meetings</Link>
-                <Link to="/projectState" className="hover:underline text-2xl text-blue-600">Project State</Link>
+                <Link to="https://classmanagerpei.atlassian.net/jira/software/projects/CRM/boards/1?atlOrigin=eyJpIjoiNDE0ZmYwZThiMjRiNDNiNDljYjE0ZGEyNjNjZDcwYTIiLCJwIjoiaiJ9" className="hover:expand"><img src={LogoJira} alt="JiraLogo" className="w-30"/></Link>
 
             </div>
         </nav>

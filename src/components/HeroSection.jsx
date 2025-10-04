@@ -1,5 +1,5 @@
 import Logo from '../assets/Logo.png'; 
-
+import { Link } from "react-router-dom";
 export default function HeroSection() {
   return (
     <div className='pt-20'> 
@@ -19,12 +19,7 @@ export default function HeroSection() {
           alt="ClassManager Logo"
           className="h-20 w-20 object-contain"
         />
-        <a
-          href="/project-state"
-          className="bg-amber-400 hover:bg-amber-500 text-white font-semibold px-6 py-2 rounded-lg shadow transition"
-        >
-          Project State
-        </a>
+        <Link to="/Meetings" className="bg-amber-400 hover:bg-amber-500 text-white font-semibold px-6 py-2 rounded-lg shadow transition">See Meetings Content</Link>
       </div>
     </section>
     </div>
