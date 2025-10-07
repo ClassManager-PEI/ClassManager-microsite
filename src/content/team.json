@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "José Bagagem",
+        "role" : "Backend",
+        "image" : "/ClassManager-microsite/highlevelarq.png"
+    },
+    {
+        "name" : "Luis Tojal",
+        "role" : "DevOps",
+        "image" : "/ClassManager-microsite/highlevelarq.png"
+    },
+    {
+        "name" : "João Barreira",
+        "role" : "Testing",
+        "image" : "/ClassManager-microsite/highlevelarq.png"
+    },
+    {
+        "name" : "Ana Ribeiro",
+        "role" : "Frontend, Documentation",
+        "image" : "/ClassManager-microsite/highlevelarq.png"
+    },
+    {
+        "name" : "Gonçalo Almeida",
+        "role" : "Database",
+        "image" : "/ClassManager-microsite/highlevelarq.png"
+    }
+]

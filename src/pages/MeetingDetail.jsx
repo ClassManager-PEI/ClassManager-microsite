@@ -17,7 +17,7 @@ export default function MeetingDetail() {
 
   if (!file) {
     return (
-      <div className="max-w-2xl mx-auto py-10">
+      <div className="max-w-2xl mx-auto px-4 pt-50">
         <p className="text-red-600 font-bold mb-4">Meeting not found.</p>
         <Link to="/meetings" className="underline text-amber-700">← Back to Meetings</Link>
       </div>
