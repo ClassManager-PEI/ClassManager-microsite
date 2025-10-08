@@ -4,12 +4,12 @@ export default function HeroSection() {
 
       <div className="flex flex-col items-center gap-4 mt-6 md:mt-0 mb-8">
         <div className='text-2xl w-5/6 flex flex-row'>
-          <div className='w-1/2 xs:w-3/4'>
+          <div className='w-1/2 xs:w-3/4 flex flex-col justify-center'>
             <div className='text-6xl font-medium'>
               A centralized and automated solution for academic logistics
             </div>
-            <div className='mt-2 font-serif'>
-              A platform to help universities and schools manage the growing complexity of teaching service distribution, room occupation, and scheduling classes. 
+            <div className='mt-2 font-serif pl-2 pb-16'>
+              <b>ClassManager</b> is a platform to help universities and schools manage the growing complexity of teaching service distribution, room occupation, and scheduling classes. 
             </div>
           </div>
           <div className="flex flex-col items-center gap-4 mt-6 md:mt-0 justify-center w-1/2 z-0">
