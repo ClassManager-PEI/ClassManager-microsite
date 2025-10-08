@@ -1,22 +1,8 @@
-### This meeting was fire
+### Arquitecture
 
---
-
-dsadnasodnaosoid
-
-----------
-
-dasdasd
-
-------
-
-hi, this is points talked:
-
- - dfasdasd
- - adfsdad
- dasdsa
 -------
+
+
 
 ![eqsdews](/ClassManager-microsite//highlevelarq.png)
 
-jsod
