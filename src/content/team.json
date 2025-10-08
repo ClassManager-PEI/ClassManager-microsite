@@ -1,27 +1,27 @@
 [
     {
         "name" : "José Bagagem",
-        "role" : "Backend",
-        "image" : "/ClassManager-microsite/highlevelarq.png"
-    },
-    {
-        "name" : "Luis Tojal",
-        "role" : "DevOps",
-        "image" : "/ClassManager-microsite/highlevelarq.png"
-    },
-    {
-        "name" : "João Barreira",
         "role" : "Testing",
         "image" : "/ClassManager-microsite/highlevelarq.png"
     },
     {
+        "name" : "Luis Tojal",
+        "role" : "Backend",
+        "image" : "/ClassManager-microsite/highlevelarq.png"
+    },
+    {
+        "name" : "João Barreira",
+        "role" : "Backend",
+        "image" : "/ClassManager-microsite/highlevelarq.png"
+    },
+    {
         "name" : "Ana Ribeiro",
-        "role" : "Frontend, Documentation",
+        "role" : "Frontend",
         "image" : "/ClassManager-microsite/highlevelarq.png"
     },
     {
         "name" : "Gonçalo Almeida",
-        "role" : "Database",
+        "role" : "Frontend",
         "image" : "/ClassManager-microsite/highlevelarq.png"
     }
 ]
