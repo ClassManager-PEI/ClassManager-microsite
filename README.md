@@ -27,21 +27,12 @@ npm install
 
 # Run the development server
 npm run dev
-
-# Build for production
-npm run build
 ```
-
-The production build will be located in the `dist/` folder.
 
 ## Deployment
 
-This microsite is deployed using [GitHub Pages](https://pages.github.com/).  
-Deployment steps:
-1. Build the site: `npm run build`
-2. Copy the contents of `dist/` to the `docs/` folder
-3. Push to the repository
-4. GitHub Pages is configured to serve from `/docs`
+The microsite is deployed via GitHub Pages. After every push, the code automatically updates the production build in the `dist/` folder.
+
 
 ## Folder Structure
 

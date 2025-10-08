@@ -1,9 +1,11 @@
-import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
-export default function MeetingDetail() {
+export default function Documentation() {
 
-  const files = import.meta.glob('../meetings/Documentation.md', { eager: true, as: 'raw' });
+  const files = import.meta.glob([
+    '../documentation/Requirements.md',
+    '../documentation/Personas.md'
+  ], { eager: true, as: 'raw' });
 
   const entries = Object.entries(files);
   if (entries.length === 0) {
@@ -15,16 +17,31 @@ export default function MeetingDetail() {
     );
   }
 
-  const [fileName, content] = entries[0];
+  const [reqFile, reqContent] = entries[1];
+  const [personasFile, personasContent] = entries[0];
+
 
   return (
     <div className="w-3/4 mx-auto py-10 px-4 pt-50">
-      <Link to="/meetings" className="text-amber-700 underline mb-4 inline-block">← Back to Meetings</Link>
       <div className="bg-white rounded-xl shadow-md p-8 w-full flex flex-row">
         <div className="prose">
-        <ReactMarkdown>{content}</ReactMarkdown>
+          <div className="text-2xl font-bold my-4">Requirements</div>
+          <div className="bg-white rounded-xl px-8 w-full flex flex-row prose">
+            <ReactMarkdown
+              components={{
+                ul: ({node, ...props}) => <ul style={{listStyleType: 'disc', paddingLeft: '1.5rem'}} {...props} />
+              }}>
+                {reqContent}
+            </ReactMarkdown>     
+          </div>
+          <div className="text-2xl font-bold my-4">Personas</div>
+          <div className="bg-white rounded-xl px-8 w-full">
+            <ReactMarkdown>
+                {personasContent}
+            </ReactMarkdown>     
+          </div>
         </div>      
-    </div>
+      </div>
     </div>
   );
 }
