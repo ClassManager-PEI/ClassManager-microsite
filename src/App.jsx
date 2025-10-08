@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 import Meetings from "./pages/Meetings"
 import MeetingDetail from "./pages/MeetingDetail"
+import Documentation from "./pages/Documentation"
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/documentation" element={<MeetingDetail />} />
+        <Route path="/documentation" element={<Documentation />} />
         <Route path="/meetings" element={<Meetings />} />
         <Route path="/meetings/:id" element={<MeetingDetail />} />
       </Routes>
