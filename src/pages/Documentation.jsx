@@ -4,7 +4,8 @@ export default function Documentation() {
 
   const files = import.meta.glob([
     '../documentation/Requirements.md',
-    '../documentation/Personas.md'
+    '../documentation/Personas.md',
+    '../documentation/UserStories.md'
   ], { eager: true, as: 'raw' });
 
   const entries = Object.entries(files);
@@ -19,7 +20,7 @@ export default function Documentation() {
 
   const [reqFile, reqContent] = entries[1];
   const [personasFile, personasContent] = entries[0];
-
+  const [userStoriesFile, userStoriesContent] = entries[2];
 
   return (
     <div className="w-3/4 mx-auto py-10 px-4 pt-50">
@@ -35,6 +36,12 @@ export default function Documentation() {
             </ReactMarkdown>     
           </div>
           <div className="text-2xl font-bold my-4">Personas</div>
+          <div className="bg-white rounded-xl px-8 w-full">
+            <ReactMarkdown>
+                {personasContent}
+            </ReactMarkdown>     
+          </div>
+          <div className="text-2xl font-bold my-4">User Stories</div>
           <div className="bg-white rounded-xl px-8 w-full">
             <ReactMarkdown>
                 {personasContent}
