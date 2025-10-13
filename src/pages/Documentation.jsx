@@ -44,7 +44,7 @@ export default function Documentation() {
           <div className="text-2xl font-bold my-4">User Stories</div>
           <div className="bg-white rounded-xl px-8 w-full">
             <ReactMarkdown>
-                {personasContent}
+                {userStoriesContent}
             </ReactMarkdown>     
           </div>
         </div>      
