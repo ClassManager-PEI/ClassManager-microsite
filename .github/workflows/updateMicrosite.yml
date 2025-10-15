@@ -1,6 +1,9 @@
 name: Microsite Update
 
-on: push
+on: 
+  push:
+    branches:
+      -main
 
 jobs:
 
