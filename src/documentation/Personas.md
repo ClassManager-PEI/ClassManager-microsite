@@ -1,37 +1,48 @@
 # Personas
 
-## Administrative Secretary
-- **Profile:** User with limited IT knowledge, responsible for central management of schedules, rooms, and communications.
+## Secretary
+- **Profile:** User with limited IT experience responsible for managing schedules, rooms, and notifications for teachers and students.
 - **Goals:**
-  - Quickly create and edit schedules using features like drag and drop.
-  - Receive and manage alerts (overlaps, unavailability, changes).
-  - Notify teachers and students about changes in schedules or rooms.
+  - Quickly create and edit schedules using drag-and-drop features.
+  - Register subjects (UCs), teachers, groups/classes, and rooms.
+  - Assign teachers to subjects and set their teaching hours.
+  - Set up and manage global and specific time restrictions.
+  - Notify teachers and students of changes.
+  - Resolve conflicts and ensure schedule consistency.
 - **Main Tasks:**
   - Configure academic periods and calendars.
-  - Manage teachers, teaching loads, and rooms.
-  - Edit and publish schedules, syncing with the system (web, PWA, QR codes).
+  - Add and update teachers, subjects, groups, and rooms.
+  - Assign teachers to subjects and teaching hours.
+  - Edit and publish schedules, sync with system (web, PWA, QR codes).
+  - Handle notifications and conflict alerts.
 
 ## Admin
-- **Profile:** Advanced user, supports the Administrative Secretary, does not directly manage schedules or rooms.
-- **Goal:**
-  - Assist the Administrative Secretary in problem resolution.
+- **Profile:** Super user with full system privileges; responsible for overseeing all operations, managing permissions, and supporting the Secretary.
+- **Goals:**
+  - Grant or revoke permissions for Secretaries and Teachers.
+  - Support and resolve any system-wide issues.
+  - Perform any task within the system if needed.
+- **Main Tasks:**
+  - Access and manage all system modules.
+  - Configure user roles and permissions.
+  - Provide support and troubleshooting for users.
 
 ## Teacher
-- **Profile:** Responsible for validating their own schedule and room conditions.
+- **Profile:** Responsible for validating their schedule, declaring availability, and ensuring room conditions.
 - **Goals:**
-  - Declare availabilities, preferences, and restrictions at the start of planning.
-  - Receive schedule proposals for validation and suggest counter-proposals if needed.
-  - Request a room change only if the assigned room does not meet minimum conditions.
+  - Declare availabilities, preferences, and restrictions.
+  - Receive and review proposed schedules; suggest changes if necessary.
+  - Request a room change if conditions are inadequate.
 - **Main Tasks:**
-  - Fill out availability/preferences form.
-  - Receive schedule proposals and, if necessary, provide feedback or counter-proposals.
-  - Request a room change, stating the reason.
+  - Fill out availability/preferences forms.
+  - Review and respond to schedule proposals.
+  - Request room changes with justification.
 
 ## Student
-- **Profile:** Student, recipient of system communications.
+- **Profile:** Receives notifications about changes to their schedule or rooms.
 - **Goals:**
-  - Receive timely notifications about changes in their schedule or classroom.
-  - Easily check the updated schedule and respective rooms for their classes.
+  - Be promptly notified of schedule or room changes.
+  - Easily access updated schedules.
 - **Main Tasks:**
-  - Receive notifications about changes (room, schedule, or teacher).
-  - Check the schedule for their classes/UCs via portal, app, or QR code.
+  - Receive notifications about changes (room, schedule, teacher).
+  - Check schedule via portal, app, or QR code.
