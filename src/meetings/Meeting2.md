@@ -2,8 +2,7 @@
 # Meeting 2
 
 **Place:** IEETA
-**Date:** 15th of October 2025
-**Theme:** Definition of calendar, priorities, and architectural planning.
+**Date:** 15th of October 2025 **Theme:** Definition of calendar, priorities, and architectural planning.
 **Participants:** José Bagagem, Gonçalo Almeida, Simão Tojal, João Barreira, Margarida Ribeiro, Daniel Ferreira e João Almeida 
 
 ---
