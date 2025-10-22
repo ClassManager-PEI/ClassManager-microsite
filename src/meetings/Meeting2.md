@@ -1,6 +1,3 @@
-Here’s your **Meeting 2** markdown file, formatted in the same structure and tone as your *Meeting 1* document, with all the information you listed included and properly organized.
-
----
 
 # Meeting 2
 
