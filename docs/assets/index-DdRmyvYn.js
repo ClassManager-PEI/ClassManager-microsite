@@ -150,10 +150,7 @@ Our initial architecture wasn't really good so the professor suggested that we s
 - Main interface mockups (paper)
 - Initial database schema
 - Final prioritized list of user stories
-`,Jp=`Here’s your **Meeting 2** markdown file, formatted in the same structure and tone as your *Meeting 1* document, with all the information you listed included and properly organized.
-
----
-
+`,Jp=`
 # Meeting 2
 
 **Place:** IEETA
