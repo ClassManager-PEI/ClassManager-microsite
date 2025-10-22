@@ -152,6 +152,40 @@
   - _Acceptance:_ Whenever there is a relevant change, I receive a clear notification indicating the before and after of the change.
   - _Difficulty:_ Bicycle
 
+# User Story Prioritization
+
+## Highest Priority (Fundamental for basic scheduling and viewing)
+
+1. **US-S1:** Add new Subjects (UCs) to the system.  
+2. **US-S2:** Add teachers to the system.  
+3. **US-S3:** Add groups/classes to the system.  
+4. **US-S4:** Add rooms to the system.  
+5. **US-S5:** Assign teachers to subjects and teaching hours.  
+6. **US-S9:** Manually add a class to the schedule.  
+7. **US-S10:** Remove a class from the schedule.  
+8. **US-S11:** Edit class details (room, teacher, time, group, UC).  
+9. **US-S12:** Edit the schedule using drag and drop.  
+10. **US-S13:** Receive immediate visual feedback about conflicts and restrictions.  
+11. **US-T1:** Teacher: Fill out the availability and preferences form.  
+12. **US-T2:** Teacher: Receive schedule proposals and suggest counter-proposals.  
+13. **US-T3:** Teacher: Request a room change if conditions are not met.  
+14. **US-S15:** Receive and view alerts about conflicts or unavailability.  
+
+## Medium Priority (Features for usability, conflict management, and notifications)
+
+
+15. **US-S6:** Define global temporal restrictions (academic periods, holidays).  
+16. **US-S7:** Define specific temporal restrictions (room or teacher unavailability).  
+17. **US-S14:** Send automatic notifications to teachers and students.  
+18. **US-ST1:** Student: Receive immediate notifications about changes in my schedule or room.
+
+## Lower Priority (Admin & support, advanced scheduling, automation tools)
+
+20. **US-A1:** Admin: Manage user roles and permissions.  
+21. **US-A2:** Admin: Access all modules and perform any operation.  
+22. **US-A3:** Admin: Provide support and troubleshooting for users.  
+23. **US-S8:** Automatically generate the initial schedule (advanced, generator).  
+24. **US-S16:** Lock a class or subject to a specific day/time and automatically solve any conflicts (solve problem, big rocket). 
 
 # Database Information
 
