@@ -3,7 +3,7 @@
         "name" : "José Bagagem",
         "role" : "DevOps",
         "image" : "/ClassManager-microsite/Bagagem.jpeg",
-        "hoverImage" : "/ClassManager-microsite/Pitufo.jpeg"
+        "hoverImage" : "/ClassManager-microsite/Maluco.jpeg"
     },
     {
         "name" : "Luis Tojal",
@@ -15,19 +15,19 @@
         "name" : "João Barreira",
         "role" : "Backend",
         "image" : "/ClassManager-microsite/Barreira.jpeg",
-        "hoverImage" : "/ClassManager-microsite/Pitufo.jpeg"
+        "hoverImage" : "/ClassManager-microsite/Batman.jpeg"
     },
     {
         "name" : "Margarida Ribeiro",
         "role" : "Frontend",
         "image" : "/ClassManager-microsite/Margarida.jpeg",
-        "hoverImage" : "/ClassManager-microsite/Pitufo.jpeg"
+        "hoverImage" : "/ClassManager-microsite/Barbuda.jpeg"
 
     },
     {
         "name" : "Gonçalo Almeida",
         "role" : "Frontend",
         "image" : "/ClassManager-microsite/Almeida.jpeg",
-        "hoverImage" : "/ClassManager-microsite/Pitufo.jpeg"
+        "hoverImage" : "/ClassManager-microsite/Fada.jpeg"
     }
 ]
