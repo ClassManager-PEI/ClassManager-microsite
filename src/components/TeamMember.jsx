@@ -16,7 +16,7 @@ export default function TeamMember({member}) {
                 />
             </div>
             
-            <div className="flex-1 text-left">
+            <div className="flex-1 text-left mt-2">
                 <h2 className="text-3xl font-bold text-amber-900 mb-2 flex justify-center">{member.name}</h2>
                 <div className="text-lg text-stone-700 m-auto flex items-center justify-center">
                 {member.role}

@@ -13,7 +13,6 @@ export default function Navbar() {
                 <Link to="/" className="text-2xl text-black font-bold">Home</Link>
                 <Link to="/meetings" className="text-2xl text-black font-bold">Meetings</Link>
                 <Link to="/documentation" className="text-2xl text-black font-bold">Documentation</Link>
-                <Link to="https://classmanagerpei.atlassian.net/jira/software/projects/CRM/boards/1?atlOrigin=eyJpIjoiNDE0ZmYwZThiMjRiNDNiNDljYjE0ZGEyNjNjZDcwYTIiLCJwIjoiaiJ9" className="hover:expand"><img src={LogoJira} alt="JiraLogo" className="h-10"/></Link>
                 <a href="https://github.com/ClassManager-PEI/" className="hover:expand"><img src={LogoGitHub} alt="GitHubLogo" className="w-12 h-12 object-contain"/></a>
 
             </div>
