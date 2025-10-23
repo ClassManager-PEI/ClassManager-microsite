@@ -4,17 +4,21 @@ import Home from "./pages/Home"
 import Meetings from "./pages/Meetings"
 import MeetingDetail from "./pages/MeetingDetail"
 import Documentation from "./pages/Documentation"
+import Calendar from "./pages/Calendar"
 
 function App() {
   return (
     <BrowserRouter basename="/ClassManager-microsite">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/documentation" element={<Documentation />} />
-        <Route path="/meetings" element={<Meetings />} />
-        <Route path="/meetings/:id" element={<MeetingDetail />} />
-      </Routes>
+      <div className="pt-16 md:pt-28">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/documentation" element={<Documentation />} />
+          <Route path="/meetings" element={<Meetings />} />
+          <Route path="/meetings/:id" element={<MeetingDetail />} />
+          <Route path="/calendar/" element={<Calendar />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   )
 }

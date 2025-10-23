@@ -5,7 +5,7 @@ export default function TeamMember({member}) {
     const [hovered, setHovered] = useState(false);
 
     return (
-        <div className="w-full px-2 m-6">
+        <div className="w-full px-2">
             <div className="w-full flex flex-col justify-between items-center bg-white rounded-xl shadow-md p-4 my-6 mx-auto max-w-96">
                 <div className="flex flex-col items-center gap-4 mt-6 md:mt-0 justify-center">
                     <img
