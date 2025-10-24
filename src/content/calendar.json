@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Project Kickoff",
+        "date": "2024-01-15",
+        "endDate": "2024-01-27",
+        "status": "completed",
+        "description": "Initial planning and team alignment meeting"
+      },
+    {
+        "id": 2,
+        "title": "Requirements Gathering",
+        "date": "2024-01-22",
+        "endDate": "2024-02-05",
+        "status": "completed",
+        "description": "Collect and document project requirements from stakeholders"
+    },
+    {
+        "id": 3,
+        "title": "Design Phase",
+        "date": "2024-02-08",
+        "endDate": "2024-02-28",
+        "status": "in-progress",
+        "description": "Create wireframes, mockups, and design system"
+    }
+]
