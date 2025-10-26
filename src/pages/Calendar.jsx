@@ -15,7 +15,7 @@ export default function ProjectTimeline() {
   })).sort((a, b) => a.startDate - b.startDate);
 
   return (
-    <div className="min-h-screen h-[170vh] bg-gradient-to-t from-amber-100 to-amber-50 py-12 px-4">
+    <div className="min-h-screen h-[190vh] bg-gradient-to-t from-amber-100 to-amber-50 py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-slate-800 mb-2">Project Timeline</h1>
@@ -24,7 +24,7 @@ export default function ProjectTimeline() {
 
 
         {/* Central timeline axis */}
-        <div className="h-[152vh] absolute left-1/2 top-72 min-h-screen w-1 bg-gradient-to-t from-gray-800 via-gray-400 to-gray-50 transform -translate-x-1/2"></div>
+        <div className="h-[172vh] absolute left-1/2 top-72 min-h-screen w-1 bg-gradient-to-t from-gray-800 via-gray-400 to-gray-50 transform -translate-x-1/2"></div>
 
         {/* Timeline items */}
         <div className="space-y-12">

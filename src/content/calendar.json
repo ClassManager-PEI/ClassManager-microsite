@@ -1,26 +1,72 @@
 [
     {
         "id": 1,
-        "title": "Project Kickoff",
-        "date": "2024-01-15",
-        "endDate": "2024-01-27",
-        "status": "completed",
-        "description": "Initial planning and team alignment meeting"
+        "title": "Data Collection",
+        "date": "2025-10-29",
+        "endDate": "2025-11-05",
+        "description": "Collecting the data to fill the database"
       },
     {
         "id": 2,
-        "title": "Requirements Gathering",
-        "date": "2024-01-22",
-        "endDate": "2024-02-05",
-        "status": "completed",
-        "description": "Collect and document project requirements from stakeholders"
+        "title": "Data Parser",
+        "date": "2025-11-06",
+        "endDate": "2025-11-09",
+        "description": "Persistence layer component to import data through CSV or Excel files"
     },
     {
         "id": 3,
-        "title": "Design Phase",
-        "date": "2024-02-08",
-        "endDate": "2024-02-28",
-        "status": "in-progress",
+        "title": "Database Implementation",
+        "date": "2025-10-29",
+        "endDate": "2025-11-09",
         "description": "Create wireframes, mockups, and design system"
+    },
+    {
+        "id": 4,
+        "title": "Classroom Schedules Viewer Feature",
+        "date": "2025-11-10",
+        "endDate": "2025-11-18",
+        "description": "Create wireframes, mockups, and design system"
+    },
+    {
+        "id": 5,
+        "title": "Room Management Feature",
+        "date": "2025-11-16",
+        "endDate": "2025-12-05",
+        "description": "Create wireframes, mockups, and design system"
+    },
+    {
+        "id": 6,
+        "title": "Deployment",
+        "date": "2025-12-08",
+        "endDate": "2025-12-10",
+        "description": ""
+    },
+    {
+        "id": 7,
+        "title": "Qr Codes Placement",
+        "date": "2025-12-11",
+        "endDate": "2025-12-13",
+        "description": ""
+    },
+    {
+        "id": 8,
+        "title": "Documentation",
+        "date": "2025-12-08",
+        "endDate": "2025-12-15",
+        "description": ""
+    },
+    {
+        "id": 9,
+        "title": "",
+        "date": "2025-12-13",
+        "endDate": "2025-12-13",
+        "description": ""
+    },
+    {
+        "id": 10,
+        "title": "User Feedback Analysis",
+        "date": "2025-12-14",
+        "endDate": "2025-12-22",
+        "description": ""
     }
 ]
