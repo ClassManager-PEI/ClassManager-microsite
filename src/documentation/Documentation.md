@@ -229,3 +229,355 @@ System that sends **automatic alerts** to students and teachers in case of impor
 ### Room Request
 Allows a **teacher** to make a **classroom reservation request**.  
 The **secretary** is responsible for **approving or rejecting** the request.
+
+# API Endpoint
+
+
+## GET classmanager/api/teacher/{year}
+
+- Returns all teachers from that year
+
+- Response
+
+```
+[
+  {
+    "Id": teacher_number,
+    "Department_Name" : department_name,
+    "Name": teacher_full_name,
+    "Hora_TP_1Sem": nhours,
+    "Hora_P_1Sem": nhours,
+    "Hora_TP_2Sem": nhours,
+    "Hora_P_2Sem": nhours
+  },
+  ...
+]
+```
+
+## GET classmanager/api/teacher/{year}/{id}
+
+- Returns a specific teacher id from year
+
+- Response
+
+```
+{
+  "Id": teacher_number,
+  "Department_Name" : department_name,
+  "Name": teacher_full_name,
+  "Subjects": [
+                {
+                  "Id": subject_id,
+                  "Name": subject_name,
+                  "Acronym": subject_acronym,
+                  "Classes": [
+                              {
+                                "ClassName": class_name,
+                                "Hour": class_weekly_hours
+                              },
+                              ...
+                            ]
+                },
+                ...
+              ]
+}
+```
+
+## GET classmanager/api/subject/{year}
+
+- Returns all subjects from an year
+
+- Response
+
+```
+[
+  {
+    "Id": suject_number,
+    "Department_Name" : department_name,
+    "Acronym": subject_acronym,
+    "Name": subject_name,
+    "Regent_id": teacher_number,
+    "Regent_name": teacher_name,
+    "Semester": semester,
+    "Students_Number": N_Students,
+    "Theorical_Classes_Number": N_Theorical_Classes,
+    "Theorical_Hours_By_Classes": N_of_Hours_By_Theorical_Class,
+    "Pratical_Classes_Number": N_Pratical_Classes,
+    "Pratical_Hours_By_Classes": N_of_Hours_By_Pratical_Class
+  },
+  ...
+]
+```
+
+## GET classmanager/api/subject/{year}/{id}
+
+- Returns a specific subject by id
+
+- Response
+
+```
+{
+  "Id": suject_number,
+  "Department_Name" : department_name,
+  "Acronym": subject_acronym,
+  "Name": subject_name,
+  "Regent_id": teacher_number,
+  "Semester": semester,
+  "Students_Number": N_Students,
+  "Teachers": [
+                {
+                  "Id": teacher_number,
+                  "Department_Name" : department_name,
+                  "Name": teacher_full_name,
+                  "Classes": [
+                              {
+                                "ClassName": class_name,
+                                "Hour": class_weekly_hours
+                              },
+                              ...
+                            ]
+                },
+                ...
+              ]
+}
+```
+
+## GET classmanager/api/template
+
+- Returns all templates
+
+- Response
+
+```
+[
+  {
+    "Id": template_Id,
+    "Name": template_name,
+    "Last_Edited_Name": Edited_Date
+  },
+  ...
+]
+```
+
+## GET classmanager/api/template/{id}
+
+- Returns a template details
+
+- Response
+
+```
+[
+  {
+    "Id": template_Id,
+    "Name": template_name,
+    "Time_Slots": [start_time1, start_time2, ...] #Slot has 30 minutes that has classes
+  },
+  ...
+]
+```
+
+## GET classmanager/api/draft
+
+- Returns all drafts
+
+- Response
+
+```
+[
+  {
+    "Id": draft_Id,
+    "Name": draft_name,
+    "Last_Edited_Name": Edited_Date,
+    "Year" : draft_year,
+    "Year" : draft_semester,
+  },
+  ...
+]
+```
+
+## GET classmanager/api/draft/{id}
+
+- Return draft's details
+
+- Response
+
+
+```
+[
+  {
+    "Id": draft_Id,
+    "Name": draft_name
+    "Classes": [
+                  {
+                      "Id": class_id,
+                      "Name": class_name,
+                      "Subject_Acronym": subject_acronym,
+                      "Subject_Name": subject_name,
+                      "Starting_Time": class_Starting_Time,
+                      "Duration": class_duration,
+                      "Classroom_Department": class_classroom_department,
+                      "Classroom_Floor": class_classroom_floor,
+                      "Classroom_Number": class_classroom_number,
+                      "Teacher_Id": class_teacher_id,
+                      "Attendents_Groups": [
+                                              {
+                                                  "Course" : course,
+                                                  "Year" : year,
+                                              },
+                                              ...
+                                          ]
+                    },
+                    ...
+                ]
+  },
+  ...
+]
+```
+
+## GET classmanager/api/schedule/{year}/{classroom}
+
+- Return all the classroom events and classes
+
+- Response
+
+
+```
+{
+  "Classes" : [
+                {
+                  "Id": class_id,
+                  "Name": class_name,
+                  "Subject_Acronym": subject_acronym,
+                  "Subject_Name": subject_name,
+                  "Starting_Time": class_starting_time,
+                  "Duration": class_duration,
+                  "Teacher_Name": class_teacher_name
+                },
+                ...
+              ],
+  "Events" : [
+                {
+                  "Id": event_id,
+                  "Name": event_name,
+                  "Starting_Time": class_starting_time,
+                  "Duration": class_duration,
+                  "Responsible_Person": responsible_name
+                },
+                ...
+              ],
+  }
+```
+
+## GET classmanager/api/request
+
+- Return all pending requests
+
+- Response
+
+
+```
+[
+  { # Test Request Example
+    "Id": event_id,
+    "Name": event_name,
+    "Starting_Time": class_starting_time,
+    "Duration": class_duration,
+    "Date": event_date,
+    "Responsible_Person": responsible_name,
+    "Number_Vigilants" : number_vigilants,
+    "Description" : description,
+    "Classroom_Types" : [
+                          {
+                            "Classroom_Type" : classroom_type,
+                            "ClassRooms_Number": N_classes                         
+                          },
+                          ...
+                        ]
+  },
+  { # Event Request Example
+    "Id": event_id,
+    "Name": event_name,
+    "Starting_Time": class_starting_time,
+    "Duration": class_duration,
+    "Date": event_date,
+    "Responsible_Person": responsible_name,
+    "Classroom_Types" : classroom_type,
+    "Description" : description
+  },
+  ...
+]
+```
+
+## GET classmanager/api/request
+
+- Return all pending requests
+
+- Response
+
+
+```
+[
+  { # Test Request Example
+    "Id": event_id,
+    "Name": event_name,
+    "Starting_Time": class_starting_time,
+    "Duration": class_duration,
+    "Date": event_date,
+    "Responsible_Person": responsible_name,
+    "Number_Vigilants" : number_vigilants,
+    "Description" : description,
+    "Classroom_Types" : [
+                          {
+                            "Classroom_Type" : classroom_type,
+                            "ClassRooms_Number": N_classes                         
+                          },
+                          ...
+                        ]
+  },
+  { # Event Request Example
+    "Id": event_id,
+    "Name": event_name,
+    "Starting_Time": class_starting_time,
+    "End_time": event_ending_time,
+    "Date": event_date,
+    "Responsible_Person": responsible_name,
+    "Classroom_Types" : classroom_type,
+    "Description" : description
+  },
+  ...
+]
+```
+
+## GET classmanager/api/classroom
+
+- Return all classes
+
+- Params: start_time, end_time, class_type, date
+
+- Response
+
+
+```
+[
+  { # Test Request Example
+    "Id": classroom_id,
+    "Name": classroom_name,
+    "Capacity": classroom_capacity
+    "Classroom_Types" : [type-1, type-2, ...]
+  }
+  ...
+]
+```
+
+## GET classmanager/api/classtype
+
+- Return all classes types
+
+
+- Response
+
+
+```
+[type1, type2,  ...]
+```
+
