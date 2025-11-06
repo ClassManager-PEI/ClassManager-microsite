@@ -54,11 +54,11 @@
 - **Goals:**
   - Declare availabilities, preferences, and restrictions.
   - Receive and review proposed schedules; suggest changes if necessary.
-  - Request a room change if conditions are inadequate.
+  - Request a room for tests or events.
 - **Main Tasks:**
   - Fill out availability/preferences forms.
   - Review and respond to schedule proposals.
-  - Request room changes with justification.
+  - Book rooms for tests or events.
 
 ## Student
 - **Profile:** Receives notifications about changes to their schedule or rooms.
@@ -142,8 +142,8 @@
 - **US-T2:** Receive schedule proposals and be able to suggest a counter-proposal if there is a conflict or unavailability.
   - _Acceptance:_ When I receive a schedule proposal, I can accept or suggest changes before final publication.
   - _Difficulty:_ Bicycle
-- **US-T3:** Request a room change only if the assigned room does not meet minimum conditions.
-  - _Acceptance:_ Whenever I identify problems in the assigned room (e.g., capacity, equipment, accessibility), I can send a change request detailing the reason, and I am notified of the Secretary's decision.
+- **US-T3:** Book a room for tests or events.
+  - _Acceptance:_ Whenever I need to schedule a test or an event, I can book a room through the system, specifying the reason and requirements. I am notified of the Secretary's decision.
   - _Difficulty:_ Bicycle
 
 ## Student
@@ -151,6 +151,9 @@
 - **US-ST1:** Receive immediate notifications about changes in my schedule or room, so I can adjust my plans in time.
   - _Acceptance:_ Whenever there is a relevant change, I receive a clear notification indicating the before and after of the change.
   - _Difficulty:_ Bicycle
+- **US-ST2:** Scan a QR code on a room to view its schedule.
+  - _Acceptance:_ I can scan the QR code posted on any classroom door and immediately see the current and upcoming schedule for that room.
+  - _Difficulty:_ Walking
 
 # User Story Prioritization
 
@@ -178,6 +181,7 @@
 16. **US-S7:** Define specific temporal restrictions (room or teacher unavailability).  
 17. **US-S14:** Send automatic notifications to teachers and students.  
 18. **US-ST1:** Student: Receive immediate notifications about changes in my schedule or room.
+19. **US-ST2:** Student: Scan a QR code on a room to view its schedule.
 
 ## Lower Priority (Admin & support, advanced scheduling, automation tools)
 
