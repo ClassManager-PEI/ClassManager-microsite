@@ -357,7 +357,7 @@ The **secretary** is responsible for **approving or rejecting** the request.
   {
     "Id": template_Id,
     "Name": template_name,
-    "Last_Edited_Name": Edited_Date
+    "Last_Edited_Date": Edited_Date
   },
   ...
 ]
@@ -374,7 +374,7 @@ The **secretary** is responsible for **approving or rejecting** the request.
   {
     "Id": template_Id,
     "Name": template_name,
-    "Time_Slots": [start_time1, start_time2, ...] #Slot has 30 minutes that has classes
+    "Time_Slots": {Week_Day :[start_time1, start_time2, ...]} #Slot has 30 minutes that has classes
   },
   ...
 ]
@@ -393,7 +393,7 @@ The **secretary** is responsible for **approving or rejecting** the request.
     "Name": draft_name,
     "Last_Edited_Name": Edited_Date,
     "Year" : draft_year,
-    "Year" : draft_semester,
+    "Semester" : draft_semester,
   },
   ...
 ]
