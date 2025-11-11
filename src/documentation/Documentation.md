@@ -411,27 +411,40 @@ The **secretary** is responsible for **approving or rejecting** the request.
   {
     "Id": draft_Id,
     "Name": draft_name
-    "Classes": [
+    "Subjects": [
                   {
-                      "Id": class_id,
-                      "Name": class_name,
-                      "Subject_Acronym": subject_acronym,
-                      "Subject_Name": subject_name,
-                      "Starting_Time": class_Starting_Time,
-                      "Duration": class_duration,
-                      "Classroom_Department": class_classroom_department,
-                      "Classroom_Floor": class_classroom_floor,
-                      "Classroom_Number": class_classroom_number,
-                      "Teacher_Id": class_teacher_id,
-                      "Attendents_Groups": [
-                                              {
-                                                  "Course" : course,
-                                                  "Year" : year,
-                                              },
-                                              ...
-                                          ]
-                    },
-                    ...
+                    "Id": subject_id,
+                    "Type": subject_type,
+                    "Acronym": subject_acronym,
+                    "Classes": [
+                                {
+                                  "Id": class_id,
+                                  "Type": class_type,
+                                  "Weekday": class_day,
+                                  "Starting_Time": class_starting_time,
+                                  "Duration": class_duration,
+                                  "Teacher_Id": class_teacher_id,
+                                  "Teacher_Name": class_teacher_name,
+                                  "Classrooms": [
+                                                  {
+                                                    "Department": classroom_department,
+                                                    "Floor": classroom_floor,
+                                                    "Number": classroom_number
+                                                  },
+                                                  ...
+                                                ],
+                                  "Attendents_Groups": [
+                                    {
+                                      "Course": course_id,
+                                      "Year": "year
+                                    },
+                                    ...
+                                  ]
+                                },
+                                ...
+                                ]
+                  },
+                  ...
                 ]
   },
   ...
