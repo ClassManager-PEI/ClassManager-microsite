@@ -1,7 +1,7 @@
 # ClassManager Microsite
 
 Welcome to the **ClassManager Microsite**!  
-This project is part of the [ClassManager-PEI](https://github.com/ClassManager-PEI/) organization and serves as the informational and landing page for the ClassManager platform.
+This project is part of the [ClassManager-PEI](https://classmanager-pei.github.io/ClassManager-microsite/) organization and serves as the informational and landing page for the ClassManager platform.
 
 ## Microsite Purpose
 
