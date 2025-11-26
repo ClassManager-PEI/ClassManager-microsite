@@ -1,16 +1,15 @@
-# Requirements
+# Functional Requirements
 
 - The system must allow user registration and authentication.
 - There are different profiles: Admin, Teacher, and Student.
 - The system must provide forms for collecting teachers' preferences and constraints (preferred schedules, areas of expertise, maximum teaching load).
-- The system must assign classes to teachers according to their preferences, areas of expertise, and teaching load.
 - The administrator can manually adjust the assignments made automatically.
 - The system must automatically generate schedules, considering constraints imposed by teachers, rooms, courses, and schedule overlaps.
 - It should detect and flag scheduling conflicts or resource overlaps.
-- The administrator can manually edit the generated schedules.
+- The administrator can manually edit the schedules.
 - It must be possible to reserve rooms in an integrated way with the academic timetable.
 - The system must monitor room occupancy rates, signaling cases of overuse.
-- The system must generate QR Codes for each room.
+- The system must generate QR Codes for each room's schedule.
 - Scanning the QR Code should allow the user to view the room's assigned schedule in real time.
 - The system must automatically notify relevant users about changes in schedules, rooms, or conflicts.
 - The system must display dashboards with graphical visualization of teaching loads by teacher, course, and department.
@@ -18,8 +17,15 @@
 - The system must be responsive and offer its main functionalities on mobile devices (Progressive Web App).
 - The parser must validate and normalize imported data, flagging any errors to the administrator.
 - The administrator must be able to approve or reject imported data before integration into the system.
+- The system must allow setting global academic periods and specific unavailability for schedules.
+- The system must allow authorized users to add, edit, and remove academic entities, including (but not limited to) subjects (UCs), teachers, groups/classes, and classrooms.
+- The system must allow for association between teachers and subjects and define teaching hours per class.
+# Non-Functional Requirements
 
-
+ - The system should integrate the University of Aveiro’s Idp, allowing users to securely log in using their institutional credentials. 
+ - The interface should be intuitive, visually clear, and easy to use for secretaries, teachers, and students through the following of Nielsen’s 10 Usability Heuristics.
+ - All API endpoints should be protected against SQL injection, XSS and CSRF attacks through tools like OWASP ZAP.
+ 
 # Personas
 
 ## Secretary
