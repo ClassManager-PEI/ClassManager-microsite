@@ -37,25 +37,39 @@ Subject: "Algorithms and Data Structures" (AED, 6 ECTS)
 - **Attributes**:
   - Class type (TP, P, T, PL, LAB)
   - Number of students in that specific class
+  - Duration (in minutes) - how long each lesson lasts
+  - Number per week - how many times this class meets weekly
 - **Relationship**: `SUM(Class.number_students)` should match `SubjectEdition.total_students`
 
-#### **Fundamental Rule: One Class = One Lesson Per Week**
+#### **Fundamental Rule: Classes Can Have Multiple Lessons Per Week**
 
-**Each class has ONLY one weekly lesson.**
+**Each class can have ONE OR MORE weekly lessons based on `number_per_week`.**
 
 **Examples:**
 ```
 SubjectEdition: AED (6h TP weekly for 150 students)
-  ├─ AED-TP1: 50 students, 3h (Monday 10:00-13:00)
-  ├─ AED-TP2: 50 students, 3h (Wednesday 14:00-17:00)
-  └─ AED-TP3: 50 students, 3h (Friday 09:00-12:00)
+Option 1 - Single 3h classes:
+  ├─ AED-TP1: 50 students, 3h duration, 1x/week (Monday 10:00-13:00)
+  ├─ AED-TP2: 50 students, 3h duration, 1x/week (Wednesday 14:00-17:00)
+  └─ AED-TP3: 50 students, 3h duration, 1x/week (Friday 09:00-12:00)
+
+Option 2 - Multiple lessons per class:
+  ├─ AED-TP1: 50 students, 90min duration, 2x/week
+  │   ├─ Monday 10:00-11:30
+  │   └─ Wednesday 10:00-11:30
+  └─ AED-TP2: 50 students, 90min duration, 2x/week
+      ├─ Tuesday 14:00-15:30
+      └─ Thursday 14:00-15:30
 
 SubjectEdition: BD (4h P weekly for 80 students)
-  ├─ BD-P1: 40 students, 2h (Tuesday 14:00-16:00)
-  └─ BD-P2: 40 students, 2h (Thursday 10:00-12:00)
+  ├─ BD-P1: 40 students, 2h duration, 1x/week (Tuesday 14:00-16:00)
+  └─ BD-P2: 40 students, 2h duration, 1x/week (Thursday 10:00-12:00)
 ```
 
-**Important**: If you need 6h weekly, create **2 classes of 3h**, not 2 lessons of the same class.
+**Important**: 
+- `Class.duration` stores the duration of each individual lesson in minutes
+- `Class.number_per_week` indicates how many lessons this class has per week
+- In drafts, you create multiple `DraftClassSchedule` entries for classes with `number_per_week > 1`
 
 ---
 
@@ -90,60 +104,71 @@ The draft system allows **experimenting and optimizing timetables** before publi
 
 ### 3.4 Draft Structure
 
-Each `DraftClassSchedule` represents a **concrete lesson**:
-- **Class** (Class) - unique class identification
-- **Professor** (teacher_id) - responsible for the class
+Each `DraftClassSchedule` represents a **concrete lesson occurrence**:
+- **Class** (Class) - which class this lesson belongs to
+- **Professor** (teacher_id) - responsible for the lesson
 - **Room** (Classroom via composite key)
-- **Schedule** (day of week + start/end time)
+- **Schedule** (day of week + start time)
+- **Duration** - inherited from Class.duration, end time calculated as `hour_start + Class.duration`
 
 #### **Fundamental Rules:**
 
-1. **One class = One lesson per draft**
+1. **One class can have MULTIPLE lessons per draft**
 ```
-   ✅ VALID:
-   Draft 1: AED-TP1 → Monday 10:00-13:00
-   
-   ❌ INVALID:
+   ✅ VALID: Class with number_per_week=2
    Draft 1:
-   ├─ AED-TP1 → Monday 10:00-13:00
-   └─ AED-TP1 → Wednesday 14:00-17:00  // ERROR: Duplicate class!
+   ├─ AED-TP1 → Monday 10:00-11:30 (lesson 1)
+   └─ AED-TP1 → Wednesday 10:00-11:30 (lesson 2)
 ```
 
-2. **Same class can be in different drafts**
+2. **Same class can be in different drafts with different schedules**
 ```
    ✅ VALID:
-   Draft 1: AED-TP1 → Monday 10:00-13:00, Prof. Silva
-   Draft 2: AED-TP1 → Wednesday 14:00-17:00, Prof. Costa  // Experimentation
+   Draft 1 (Experiment A):
+   ├─ AED-TP1 → Monday 10:00-11:30, Prof. Silva
+   └─ AED-TP1 → Wednesday 10:00-11:30, Prof. Silva
+   
+   Draft 2 (Experiment B):
+   ├─ AED-TP1 → Tuesday 14:00-15:30, Prof. Costa
+   └─ AED-TP1 → Thursday 14:00-15:30, Prof. Costa
 ```
 
 3. **A draft can have multiple classes from the same subject**
 ```
    ✅ VALID:
    Draft 1:
-   ├─ AED-TP1 → Monday 10:00-13:00
-   ├─ AED-TP2 → Wednesday 14:00-17:00
-   └─ AED-TP3 → Friday 09:00-12:00
+   ├─ AED-TP1 → Monday 10:00-11:30
+   ├─ AED-TP1 → Wednesday 10:00-11:30
+   ├─ AED-TP2 → Tuesday 14:00-15:30
+   ├─ AED-TP2 → Thursday 14:00-15:30
+   └─ AED-TP3 → Friday 09:00-10:30
+```
+
+4. **Validation: Number of lessons matches number_per_week**
+```
+   Business Logic should validate:
+   COUNT(DraftClassSchedule WHERE class_id=X AND draft_id=Y) == Class.number_per_week
 ```
 
 ### 3.5 Draft Flexibility
 
 Within a draft, you can experiment with:
-- ✅ Different professors for each class
-- ✅ Different rooms
-- ✅ Different time slots
+- ✅ Different professors for each lesson of the same class
+- ✅ Different rooms for each lesson
+- ✅ Different time slots for each lesson
 - ✅ Different complete configurations
 
 **Experimentation Example:**
 ```
 Draft "Experiment A":
-├─ AED-TP1: Prof. Silva, Room A101, Monday 10:00-13:00
-├─ AED-TP2: Prof. Costa, Room B202, Wednesday 14:00-17:00
-└─ AED-TP3: Prof. Silva, Room A101, Friday 09:00-12:00
+├─ AED-TP1 (2x/week): Prof. Silva, Room A101, Monday 10:00 + Wednesday 10:00
+├─ AED-TP2 (2x/week): Prof. Costa, Room B202, Tuesday 14:00 + Thursday 14:00
+└─ AED-TP3 (1x/week): Prof. Silva, Room A101, Friday 09:00
 
 Draft "Experiment B" (same classes, different configuration):
-├─ AED-TP1: Prof. Costa, Room C301, Tuesday 14:00-17:00
-├─ AED-TP2: Prof. Silva, Room A101, Thursday 10:00-13:00
-└─ AED-TP3: Prof. Costa, Room B202, Friday 14:00-17:00
+├─ AED-TP1 (2x/week): Prof. Costa, Room C301, Monday 14:00 + Wednesday 14:00
+├─ AED-TP2 (2x/week): Prof. Silva, Room A101, Tuesday 10:00 + Thursday 10:00
+└─ AED-TP3 (1x/week): Prof. Costa, Room B202, Friday 14:00
 ```
 
 ---
@@ -211,11 +236,13 @@ Room requests are **one-time events** (not associated with specific courses or e
 - **Block approval**: The entire request is approved/rejected at once
 - **Key fields**:
   - `user_id`: Who made the request
+  - `name`: Name/title of the event
   - `type_request_id`: Type of event (TEST, EVENT, MEETING, etc.)
   - `status_id`: Current status (pending, approved, rejected, completed)
   - `request_date`: Specific date of the event
-  - `hour_start`, `hour_end`: Event schedule
-  - `required_vigilants`: Number of supervisors needed
+  - `hour_start`: Event start time
+  - `duration`: Event duration in minutes
+  - `number_vigilants`: Number of supervisors needed (nullable)
   - `approved_at`, `approved_by`: Who and when approved the request
 
 #### **RequestClassroomType (What is Requested)**
@@ -238,14 +265,14 @@ Room requests are **one-time events** (not associated with specific courses or e
 #### **Vigilants (Supervisors)**
 - List of people assigned to supervise the event
 - **Associated with the request as a whole**, not with specific rooms
-- Validation: Number of supervisors assigned should match `required_vigilants`
+- Validation: Number of supervisors assigned should match `number_vigilants`
 
 ### 5.4 Request Flow
 ```
 1. REQUEST CREATION
    ├─ User creates Request
-   ├─ Specifies event type, date, schedule
-   ├─ Indicates how many supervisors are needed
+   ├─ Specifies event type, date, schedule (hour_start + duration)
+   ├─ Indicates how many supervisors are needed (number_vigilants)
    ├─ In RequestClassroomType: specifies room types and quantities
    │   Example: "2 laboratories + 1 auditorium"
    └─ Initial status: PENDING
@@ -254,7 +281,7 @@ Room requests are **one-time events** (not associated with specific courses or e
    ├─ Verifies room availability
    ├─ In RequestClassroom: assigns specific compatible rooms
    │   Example: Lab A101, Lab B202, Auditorium C301
-   ├─ In Vigilants: assigns supervisors
+   ├─ In Vigilants: assigns supervisors (if number_vigilants > 0)
    └─ Validates no conflicts
 
 3. BLOCK APPROVAL
@@ -276,12 +303,13 @@ Room requests are **one-time events** (not associated with specific courses or e
 ```
 1. Professor creates request:
    Request:
+   ├─ name: "Final Programming Exam"
    ├─ type_request_id: 1 (TEST)
    ├─ request_date: 2025-06-10
    ├─ hour_start: 10:00
-   ├─ hour_end: 12:00
-   ├─ required_vigilants: 3
-   ├─ description: "Final Programming Exam"
+   ├─ duration: 120 (minutes)
+   ├─ number_vigilants: 3
+   ├─ description: "Final Programming Exam - 120 students"
    └─ status_id: 1 (PENDING)
 
    RequestClassroomType:
@@ -322,9 +350,10 @@ Room requests are **one-time events** (not associated with specific courses or e
    COUNT(RequestClassroom with that type) == quantity
 ```
 
-2. **Number of supervisors = Required supervisors**
+2. **Number of supervisors = Required supervisors** (if applicable)
 ```
-   COUNT(Vigilants) == Request.required_vigilants
+   If Request.number_vigilants IS NOT NULL:
+   COUNT(Vigilants) == Request.number_vigilants
 ```
 
 3. **No room conflicts**
@@ -332,9 +361,12 @@ Room requests are **one-time events** (not associated with specific courses or e
    Rooms in RequestClassroom cannot have:
    - Approved classes in ACTIVE draft at same time
    - Other approved requests at same time
+   
+   Time overlap calculated as:
+   request_hour_start to (request_hour_start + request_duration)
 ```
 
-4. **No supervisor conflicts**
+4. **No supervisor conflicts** (if vigilants are assigned)
 ```
    Supervisors cannot have:
    - Classes at same time
@@ -349,6 +381,7 @@ Room requests are **one-time events** (not associated with specific courses or e
 | `approved` | Approved (rooms + supervisors assigned) |
 | `rejected` | Rejected by admin |
 | `cancelled` | Cancelled by requester |
+| `completed` | Event has occurred |
 
 ### 5.9 Request Types
 
@@ -369,7 +402,7 @@ Room requests are **one-time events** (not associated with specific courses or e
 | **Association** | Not linked to courses | Linked to SubjectEditions |
 | **Approval** | Block approval before event | Publication to make official |
 | **Rooms** | Assigned for specific date/time | Assigned for every week |
-| **Example** | Thesis defense on Dec 15 | AED-TP1 every Monday |
+| **Example** | Thesis defense on Dec 15 | AED-TP1 every Monday & Wednesday |
 | **Supervisors** | Specific for the event | Not applicable |
 
 ---
@@ -433,31 +466,34 @@ SubjectEdition: AED 2024/1
 ├─ weekly_hours_p = 4h
 ├─ total_students = 150
 └─ Class creation:
-    ├─ AED-TP1: 50 students, 3h
-    ├─ AED-TP2: 50 students, 3h
-    ├─ AED-P1: 50 students, 2h
-    └─ AED-P2: 50 students, 2h
+    ├─ AED-TP1: 50 students, 90min duration, 2x/week
+    ├─ AED-TP2: 50 students, 90min duration, 2x/week
+    ├─ AED-P1: 50 students, 2h duration, 1x/week
+    └─ AED-P2: 50 students, 2h duration, 1x/week
 ```
 
 ### 7.3 Drafts
 
-#### **One Class = One Lesson Per Draft**
-- **Guarantee**: Constraint `UNIQUE (draft_id, class_id)` in database
-- **Meaning**: Each class can only appear **once** in each draft
+#### **Classes Can Have Multiple Lessons Per Draft**
+- **No constraint preventing multiple lessons per class**
+- Each `DraftClassSchedule` entry = one lesson occurrence
+- Business Logic should validate: number of lessons matches `Class.number_per_week`
 ```sql
+-- ✅ VALID: Same class multiple times in same draft
+Draft 1:
+├─ AED-TP1 → Monday 10:00-11:30
+└─ AED-TP1 → Wednesday 10:00-11:30
+
 -- ✅ VALID: Same class in different drafts
-Draft 1: AED-TP1 → Monday 10:00
-Draft 2: AED-TP1 → Wednesday 14:00
+Draft 1: AED-TP1 → Monday 10:00, Wednesday 10:00
+Draft 2: AED-TP1 → Tuesday 14:00, Thursday 14:00
 
 -- ✅ VALID: Different classes in same draft
 Draft 1:
-├─ AED-TP1 → Monday 10:00
-└─ AED-TP2 → Wednesday 14:00
-
--- ❌ INVALID: Same class twice in same draft
-Draft 1:
-├─ AED-TP1 → Monday 10:00
-└─ AED-TP1 → Wednesday 14:00  // ERROR: duplicate key
+├─ AED-TP1 → Monday 10:00-11:30
+├─ AED-TP1 → Wednesday 10:00-11:30
+├─ AED-TP2 → Tuesday 14:00-15:30
+└─ AED-TP2 → Thursday 14:00-15:30
 ```
 
 #### **Only One Active Draft Per Edition**
@@ -487,10 +523,20 @@ Edition 2024/1:
 
 ### 7.5 Validations (Business Logic)
 
+#### **Class Lesson Count**
+```
+Each class must have correct number of lessons in draft:
+COUNT(DraftClassSchedule WHERE class_id=X AND draft_id=Y) == Class.number_per_week
+```
+
 #### **Professor Conflicts**
 ```
 A professor CANNOT have 2 classes at the same time in the same draft
-Validate: (draft_id, teacher_id, day_of_week, hour_start) unique
+Validate: No overlapping lessons for same teacher
+
+Check time overlap:
+lesson1.hour_start < lesson2.hour_start + lesson2.duration AND
+lesson1.hour_start + lesson1.duration > lesson2.hour_start
 ```
 
 **Example:**
@@ -504,7 +550,7 @@ Draft 1:
 #### **Room Conflicts**
 ```
 A room CANNOT have 2 classes at the same time in the same draft
-Validate: (draft_id, classroom, day_of_week, hour_start) unique
+Validate: No overlapping lessons for same room
 ```
 
 **Example:**
@@ -529,8 +575,8 @@ AED-TP1: 60 students → Room A101 (capacity 50)
 
 #### **Lesson Duration**
 ```
-hour_end > hour_start
-Duration should be reasonable multiple (e.g., 1h, 1.5h, 2h, 3h)
+Duration should be reasonable (e.g., 30min, 60min, 90min, 120min, 180min)
+End time calculated as: hour_start + (Class.duration minutes)
 ```
 
 #### **Room-Class Type Compatibility**
@@ -545,10 +591,14 @@ Practical classes → Normal rooms or labs
 When approving a Request, validate that:
 - Assigned rooms don't have classes in ACTIVE draft at that time
 - Assigned rooms don't have other approved requests at same time
-- Supervisors don't have classes at that time
+- Supervisors don't have classes at that time (if number_vigilants > 0)
 - Supervisors don't have other approved requests at same time
 - Number of assigned rooms matches requested quantities by type
-- Number of supervisors matches required_vigilants
+- Number of supervisors matches number_vigilants (if specified)
+
+Time calculations use:
+- Draft lessons: hour_start to (hour_start + Class.duration)
+- Requests: hour_start to (hour_start + Request.duration)
 ```
 
 ---
