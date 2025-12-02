@@ -34,6 +34,7 @@
   - Quickly create and edit schedules using drag-and-drop features.
   - Register subjects (UCs), teachers, groups/classes, and rooms.
   - Assign teachers to subjects and set their teaching hours.
+  - Accept and reject requests to book classrooms.
   - Set up and manage global and specific time restrictions.
   - Notify teachers and students of changes.
   - Resolve conflicts and ensure schedule consistency.
@@ -69,10 +70,8 @@
 ## Student
 - **Profile:** Receives notifications about changes to their schedule or rooms.
 - **Goals:**
-  - Be promptly notified of schedule or room changes.
   - Easily access updated schedules.
 - **Main Tasks:**
-  - Receive notifications about changes (room, schedule, teacher).
   - Check schedule via portal, app, or QR code.
 
 # User Stories and Acceptance Criteria (with Difficulty Ratings)
@@ -118,7 +117,7 @@
 - **US-S13:** Receive immediate visual feedback about conflicts and restrictions.
   - _Acceptance:_ Whenever I add, remove, or edit a class, I see visual alerts for conflicts (room, teacher, group, or temporal restrictions).
   - _Difficulty:_ Bicycle
-- **US-S14:** Send automatic notifications to teachers and students about schedule or room changes.
+- **US-S14:** Send automatic notifications to teachers and students about schedule.
   - _Acceptance:_ When I edit or publish the schedule, all affected users receive a clear notification about the change.
   - _Difficulty:_ Bicycle
 - **US-S15:** Receive and view alerts about conflicts or unavailability.
@@ -127,6 +126,13 @@
   - **US-S16:** Lock a class or subject to a specific day/time and automatically solve any conflicts.
   - _Acceptance:_ I can lock a class (e.g., Programming) to Wednesday at a specific time. If conflicts or errors arise, the system calculates and suggests alternative solutions. I can trigger this by clicking a "Solve Problem" button.
   - _Difficulty:_ Big Rocket
+  - **US-S17:** Manage classroom booking requests.
+  - _Acceptance:_ I can view a list of pending classroom booking requests, including the requester, classroom type, date, time slot and other important info. I can accept or reject any pending booking requests. For **test bookings**, when accepting I must:
+    - Assign Classrooms - Select the required number of classrooms, ensuring only those available for the specific date and time slot appear as options. The selection must match the number and type requested by the teacher.
+    - Assign Vigilants - Select the required number of teachers to serve as vigilants, ensuring only those not schedule for a class at that specific date and time slot appear as options.
+  For **event bookings**, when acceptiong I must:
+    - Assign a classroom - Select one classroom of the type requested, ensuring only classrooms available for the specific date and time slot appear as options.
+  - _Difficulty:_ Bycicle
 
 ## Admin
 
@@ -154,10 +160,7 @@
 
 ## Student
 
-- **US-ST1:** Receive immediate notifications about changes in my schedule or room, so I can adjust my plans in time.
-  - _Acceptance:_ Whenever there is a relevant change, I receive a clear notification indicating the before and after of the change.
-  - _Difficulty:_ Bicycle
-- **US-ST2:** Scan a QR code on a room to view its schedule.
+- **US-ST1:** Scan a QR code on a room to view its schedule.
   - _Acceptance:_ I can scan the QR code posted on any classroom door and immediately see the current and upcoming schedule for that room.
   - _Difficulty:_ Walking
 
@@ -165,37 +168,38 @@
 
 ## Highest Priority (Fundamental for basic scheduling and viewing)
 
-1. **US-S1:** Add new Subjects (UCs) to the system.  
-2. **US-S2:** Add teachers to the system.  
-3. **US-S3:** Add groups/classes to the system.  
-4. **US-S4:** Add rooms to the system.  
-5. **US-S5:** Assign teachers to subjects and teaching hours.  
-6. **US-S9:** Manually add a class to the schedule.  
-7. **US-S10:** Remove a class from the schedule.  
-8. **US-S11:** Edit class details (room, teacher, time, group, UC).  
-9. **US-S12:** Edit the schedule using drag and drop.  
-10. **US-S13:** Receive immediate visual feedback about conflicts and restrictions.  
-11. **US-T1:** Teacher: Fill out the availability and preferences form.  
-12. **US-T2:** Teacher: Receive schedule proposals and suggest counter-proposals.  
-13. **US-T3:** Teacher: Request a room change if conditions are not met.  
-14. **US-S15:** Receive and view alerts about conflicts or unavailability.  
+1. **US-ST1:** Student: Scan a QR code on a room to view its schedule.
+2. **US-T3:** Book a room for tests or events.
+3. **US-S17:** Manage classroom booking requests.
+4. **US-S13:** Receive immediate visual feedback about conflicts and restrictions.  
+5. **US-S15:** Receive and view alerts about conflicts or unavailability.  
+
 
 ## Medium Priority (Features for usability, conflict management, and notifications)
-
-
-15. **US-S6:** Define global temporal restrictions (academic periods, holidays).  
-16. **US-S7:** Define specific temporal restrictions (room or teacher unavailability).  
-17. **US-S14:** Send automatic notifications to teachers and students.  
-18. **US-ST1:** Student: Receive immediate notifications about changes in my schedule or room.
-19. **US-ST2:** Student: Scan a QR code on a room to view its schedule.
+6. **US-S12:** Edit the schedule using drag and drop.
+7. **US-S6:** Define global temporal restrictions (academic periods, holidays).  
+8. **US-A1:** Admin: Manage user roles and permissions.  
+9. **US-S1:** Add new Subjects (UCs) to the system.  
+10. **US-S2:** Add teachers to the system.  
+11. **US-S3:** Add groups/classes to the system.  
+12. **US-S4:** Add rooms to the system.  
+13. **US-S5:** Assign teachers to subjects and teaching hours.  
+14. **US-S9:** Manually add a class to the schedule.  
+15. **US-S10:** Remove a class from the schedule.  
+16. **US-S11:** Edit class details (room, teacher, time, group, UC).  
+17. **US-S7:** Define specific temporal restrictions (room or teacher unavailability).  
+18. **US-S14:** Send automatic notifications to teachers and students.  
 
 ## Lower Priority (Admin & support, advanced scheduling, automation tools)
 
-20. **US-A1:** Admin: Manage user roles and permissions.  
+19. **US-T2:** Teacher: Receive schedule proposals and suggest counter-proposals.  
+20. **US-T3:** Teacher: Request a room change if conditions are not met.  
 21. **US-A2:** Admin: Access all modules and perform any operation.  
 22. **US-A3:** Admin: Provide support and troubleshooting for users.  
 23. **US-S8:** Automatically generate the initial schedule (advanced, generator).  
 24. **US-S16:** Lock a class or subject to a specific day/time and automatically solve any conflicts (solve problem, big rocket). 
+25. **US-T1:** Teacher: Fill out the availability and preferences form.  
+
 
 # Database Information
 
