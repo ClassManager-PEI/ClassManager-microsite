@@ -3,31 +3,31 @@
         "name" : "José Bagagem",
         "role" : "DevOps",
         "image" : "/ClassManager-microsite/Bagagem.jpeg",
-        "hoverImage" : "/ClassManager-microsite/Maluco.jpeg"
+        "hoverImage" : "/ClassManager-microsite/Bagagem.jpeg"
     },
     {
         "name" : "Luis Tojal",
         "role" : "Backend",
         "image" : "/ClassManager-microsite/Tojal.jpeg",
-        "hoverImage" : "/ClassManager-microsite/Pitufo.jpeg"
+        "hoverImage" : "/ClassManager-microsite/Tojal.jpeg"
     },
     {
         "name" : "João Barreira",
         "role" : "Backend",
         "image" : "/ClassManager-microsite/Barreira.jpeg",
-        "hoverImage" : "/ClassManager-microsite/Batman.jpeg"
+        "hoverImage" : "/ClassManager-microsite/Barreira.jpeg"
     },
     {
         "name" : "Margarida Ribeiro",
         "role" : "Frontend",
         "image" : "/ClassManager-microsite/Margarida.jpeg",
-        "hoverImage" : "/ClassManager-microsite/Barbuda.jpeg"
+        "hoverImage" : "/ClassManager-microsite/Margarida.jpeg"
 
     },
     {
         "name" : "Gonçalo Almeida",
         "role" : "Frontend",
         "image" : "/ClassManager-microsite/Almeida.jpeg",
-        "hoverImage" : "/ClassManager-microsite/Fada.jpeg"
+        "hoverImage" : "/ClassManager-microsite/Almeida.jpeg"
     }
 ]
