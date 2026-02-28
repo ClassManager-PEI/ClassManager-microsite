@@ -1,0 +1,12 @@
+node_modules
+dist
+docs
+.git
+.github
+*.log
+.eslintcache
+.vscode
+.DS_Store
+Dockerfile
+docker-compose.yml
+.dockerignore

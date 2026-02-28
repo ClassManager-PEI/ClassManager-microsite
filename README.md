@@ -21,6 +21,8 @@ This microsite provides:
 
 To run the microsite locally:
 
+### Using Node.js directly
+
 ```bash
 # Install dependencies
 npm install
@@ -28,6 +30,14 @@ npm install
 # Run the development server
 npm run dev
 ```
+
+### Using Docker Compose
+
+```bash
+# Build and run the container
+docker compose up --build
+```
+The site will be available at [http://localhost:8080](http://localhost:8080).
 
 ## Deployment
 
