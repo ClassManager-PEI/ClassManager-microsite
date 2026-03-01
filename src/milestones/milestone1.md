@@ -47,7 +47,7 @@ In this way, we were able to clearly assess our problem and define a concrete, s
 
 ### High-Level Architecture
 
-Although our platform has the potential to generate value for the entire academic community, the number of concurrent users will never be very high. Since the operations do not require low latency, we concluded that a layered architecture would be more than sufficient to handle this problem.
+Although our platform has the potential to generate value for the entire academic community, the number of concurrent users will never be very high. Since the operations do not require low latency, we concluded that a layered architecture would be more than sufficient to handle this problem, as illustrated in the architecture diagram below.
 
 <img src="/ClassManager-microsite/high_level_arch.png" alt="ClassManager High-Level Architecture" width="100%" />
 
@@ -72,3 +72,17 @@ Given this situation, it became clear that continuing with the current solution 
 | Free to use                          | ❌        | ✅       | ❌        | ✅          |
 
 We analyzed several tools, but none were capable of implementing everything we required: some lacked security, others had unintuitive interfaces, and some were simply paid solutions.
+
+## Risks and calendar
+
+As with any software project of some complexity, ClassManager also presents several significant risks.
+
+One of the main risks is data consistency and the accidental overlap of classes. Since the system will integrate information from multiple departments and schedules, small errors may lead to conflicts or duplications, affecting the overall results.
+
+Another high-level risk relates to the complexity of timetable optimization. Ensuring that it satisfies all constraints — rooms, lecturers, time slots, and groups — without generating overlaps is a considerable technical challenge.
+
+Regarding the project timeline, future development will be organized into modules. These modules represent both the previously discussed epics and the deployment and user feedback phases.
+
+Providing a quick overview of the schedule, we intend to begin immediately with the development of the room management module. Our goal is to complete this component by the first week of December, and then proceed to the user feedback phase and production release. This way, we will have an MVP developed, tested, and running in production at DETI, as shown in the project calendar below.
+
+<img src="/ClassManager-microsite/calendar_m1.png" alt="ClassManager Project Calendar" width="100%" />
