@@ -8,4 +8,4 @@
 
  - Decided to refactor parts of the codebase to avoid building on broken functionality.
  - Focus shifted to implementing warnings when users attempt to edit schedules.
- - Adding observability and implementing a CI pipeline with automated tests and Sonar review.
+ - Adding observability and implementing a CI pipeline with automated tests and Sonar review .
